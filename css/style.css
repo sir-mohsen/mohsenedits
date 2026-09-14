@@ -1,0 +1,1501 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+
+
+/* ========================================
+   RESET
+======================================== */
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: #080808;
+    color: #f5f5f5;
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+}
+
+
+body.modal-open {
+    overflow: hidden;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 28px 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(8,8,8,.9),
+        transparent
+    );
+}
+
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+
+.logo span {
+    color: #aaa;
+}
+
+
+.nav {
+    display: flex;
+    gap: 36px;
+}
+
+
+.nav a {
+    font-size: 13px;
+    color: #aaa;
+
+    transition: .3s ease;
+}
+
+
+.nav a:hover {
+    color: white;
+}
+
+
+.menu-toggle {
+    display: none;
+
+    border: 0;
+    background: none;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+    min-height: 100vh;
+
+    padding:
+        180px 5vw
+        60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+}
+
+
+.hero-content {
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+}
+
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+    font-size: clamp(
+        55px,
+        9vw,
+        140px
+    );
+
+    line-height: .92;
+
+    letter-spacing: -7px;
+
+    max-width: 1100px;
+}
+
+
+.hero h1 span {
+    display: block;
+    color: #777;
+}
+
+
+.hero-description {
+    max-width: 520px;
+
+    margin-top: 45px;
+
+    color: #999;
+
+    font-size: 16px;
+}
+
+
+.hero-button {
+    display: inline-flex;
+
+    gap: 25px;
+
+    margin-top: 40px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #555;
+
+    font-size: 13px;
+}
+
+
+.hero-button span {
+    transition: .3s;
+}
+
+
+.hero-button:hover span {
+    transform: translateY(5px);
+}
+
+
+.hero-meta {
+    position: absolute;
+
+    bottom: 35px;
+    left: 5vw;
+    right: 5vw;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    color: #555;
+}
+
+
+/* ========================================
+   SECTIONS
+======================================== */
+
+.work-section,
+.about-section,
+.services-section,
+.contact-section {
+
+    padding:
+        150px 5vw;
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    margin-bottom: 70px;
+
+}
+
+
+.section-heading h2 {
+
+    font-size: clamp(
+        45px,
+        7vw,
+        90px
+    );
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+
+}
+
+
+.section-number {
+
+    color: #555;
+
+    font-size: 11px;
+
+}
+
+
+/* ========================================
+   FILTERS
+======================================== */
+
+.filters {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 50px;
+
+}
+
+
+.filter {
+
+    background: transparent;
+
+    border: 1px solid #292929;
+
+    color: #777;
+
+    padding: 10px 17px;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    transition: .3s;
+
+}
+
+
+.filter:hover,
+.filter.active {
+
+    background: white;
+
+    border-color: white;
+
+    color: black;
+
+}
+
+
+/* ========================================
+   PROJECT GRID
+======================================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px 24px;
+}
+
+
+.project-card {
+
+    cursor: pointer;
+
+}
+
+
+.project-image {
+    position: relative;
+
+    /* اندازه کوچک‌تر تامبنیل */
+    width: min(280px, 100%);
+
+    /* حفظ نسبت عمودی 9:16 */
+    aspect-ratio: 9 / 16;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border-radius: 12px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+
+    /* تصویر کامل داخل کادر باقی می‌ماند */
+    object-fit: contain;
+
+    display: block;
+
+    background: #111;
+
+    transition: transform .4s ease;
+}
+
+
+.project-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.45);
+
+    opacity: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: .4s;
+
+}
+
+
+.project-card:hover
+.project-overlay {
+
+    opacity: 1;
+
+}
+
+
+.project-card:hover
+.project-image img {
+
+    transform: scale(1.05);
+
+}
+
+
+.play-button {
+
+    width: 65px;
+    height: 65px;
+
+    border: 1px solid
+        rgba(255,255,255,.6);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+
+}
+
+
+.project-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding-top: 18px;
+
+}
+
+
+.project-category {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #666;
+
+}
+
+
+.project-info h3 {
+
+    margin-top: 7px;
+
+    font-size: 19px;
+
+    font-weight: 500;
+
+}
+
+
+.project-arrow {
+
+    color: #555;
+
+    font-size: 22px;
+
+}
+
+
+/* ========================================
+   ABOUT
+======================================== */
+
+.about-section {
+
+    border-top: 1px solid #181818;
+
+}
+
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.4fr 1fr;
+
+    gap: 100px;
+
+}
+
+
+.about-large {
+
+    font-size:
+        clamp(30px, 4vw, 55px);
+
+    line-height: 1.1;
+
+    letter-spacing: -2px;
+
+}
+
+
+.about-text {
+
+    color: #888;
+
+    max-width: 450px;
+
+}
+
+
+.about-text p + p {
+
+    margin-top: 25px;
+
+}
+
+
+/* ========================================
+   SERVICES
+======================================== */
+
+.services-list {
+
+    border-top: 1px solid #222;
+
+}
+
+
+.service {
+
+    display: grid;
+
+    grid-template-columns:
+        80px 1fr 1fr;
+
+    gap: 30px;
+
+    padding: 35px 0;
+
+    border-bottom: 1px solid #222;
+
+    align-items: start;
+
+}
+
+
+.service span {
+
+    color: #555;
+
+    font-size: 11px;
+
+}
+
+
+.service h3 {
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+}
+
+
+.service p {
+
+    color: #777;
+
+    max-width: 400px;
+
+    font-size: 14px;
+
+}
+
+
+/* ========================================
+   CONTACT
+======================================== */
+
+.contact-section {
+
+    min-height: 80vh;
+
+}
+
+
+.contact-content {
+
+    margin-top: 100px;
+
+}
+
+
+.contact-content > p {
+
+    color: #777;
+
+    margin-bottom: 20px;
+
+}
+
+
+.contact-email {
+
+    font-size:
+        clamp(30px, 6vw, 80px);
+
+    letter-spacing: -4px;
+
+    border-bottom: 1px solid #444;
+
+}
+
+
+.social-links {
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-top: 70px;
+
+}
+
+
+.social-links a {
+
+    color: #777;
+
+    font-size: 12px;
+
+}
+
+
+.social-links a:hover {
+
+    color: white;
+
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+
+    padding:
+        30px 5vw;
+
+    border-top: 1px solid #181818;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #444;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ========================================
+   VIDEO MODAL
+======================================== */
+
+.video-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.96);
+
+    z-index: 999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .35s;
+
+    overflow-y: auto;
+
+    padding: 70px 5vw;
+
+}
+
+
+.video-modal.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.modal-close {
+
+    position: fixed;
+
+    top: 25px;
+    right: 35px;
+
+    width: 50px;
+    height: 50px;
+
+    border: 1px solid #444;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+}
+
+
+.modal-container {
+
+    max-width: 1200px;
+
+    margin:
+        40px auto;
+
+}
+
+
+.aparat-player {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: black;
+
+}
+
+
+.aparat-player iframe {
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+}
+
+
+.modal-info {
+
+    padding-top: 30px;
+
+}
+
+
+.modal-info p:first-child {
+
+    color: #666;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.modal-info h2 {
+
+    font-size: 35px;
+
+    margin: 10px 0;
+
+}
+
+
+.modal-info p:last-child {
+
+    color: #888;
+
+    max-width: 600px;
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .header {
+
+        padding: 22px 6vw;
+
+    }
+
+
+    .nav {
+
+        position: fixed;
+
+        inset:
+            0 0 0 30%;
+
+        background: #0a0a0a;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        padding: 40px;
+
+        transform:
+            translateX(100%);
+
+        transition: .4s;
+
+    }
+
+
+    .nav.open {
+
+        transform:
+            translateX(0);
+
+    }
+
+
+    .nav a {
+
+        font-size: 25px;
+
+    }
+
+
+    .menu-toggle {
+
+        display: block;
+
+    }
+
+
+    .menu-toggle span {
+
+        display: block;
+
+        width: 25px;
+
+        height: 1px;
+
+        background: white;
+
+        margin: 6px;
+
+    }
+
+
+    .hero {
+
+        padding:
+            150px 6vw 60px;
+
+    }
+
+
+    .hero h1 {
+
+        letter-spacing: -4px;
+
+    }
+
+
+    .hero-meta {
+
+        left: 6vw;
+        right: 6vw;
+
+    }
+
+
+    .hero-meta span:last-child {
+
+        display: none;
+
+    }
+
+
+    .work-section,
+    .about-section,
+    .services-section,
+    .contact-section {
+
+        padding:
+            100px 6vw;
+
+    }
+
+
+    .section-heading {
+
+        margin-bottom: 50px;
+
+    }
+
+
+    .projects-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+
+    .about-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+
+    .service {
+
+        grid-template-columns:
+            40px 1fr;
+
+    }
+
+
+    .service p {
+
+        grid-column: 2;
+
+    }
+
+
+    footer {
+
+        padding:
+            25px 6vw;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+    .video-modal {
+
+        padding:
+            70px 15px;
+
+    }
+
+
+    .modal-close {
+
+        right: 15px;
+
+    }
+	
+	.hero-portrait {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    width: 70%;
+
+    margin:
+        60px auto 0;
+
+    order: 2;
+	}
+	
+	.hero {
+    overflow: hidden;
+	}
+
+}.hero-portrait {
+    position: absolute;
+
+    right: 8vw;
+    bottom: 0;
+
+    width: min(32vw, 480px);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+.hero-portrait img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    filter: grayscale(100%);
+
+    opacity: .92;
+}
+
+.header-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+.language-switcher {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 11px;
+
+    color: #555;
+}
+
+
+.language-btn {
+    border: 0;
+
+    background: transparent;
+
+    color: #555;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    padding: 0;
+
+    transition: .3s;
+}
+
+
+.language-btn:hover,
+.language-btn.active {
+    color: white;
+}
+body.rtl {
+    font-family:
+        "Vazirmatn",
+        "Vazir",
+        sans-serif;
+
+    direction: rtl;
+}
+
+
+body.rtl .hero h1,
+body.rtl .section-heading h2,
+body.rtl .about-large {
+    letter-spacing: 0;
+}
+
+
+body.rtl .hero-description {
+    line-height: 2;
+}
+
+
+body.rtl .hero-button {
+    flex-direction: row-reverse;
+}
+
+
+body.rtl .section-heading {
+    direction: rtl;
+}
+
+
+body.rtl .project-info {
+    direction: rtl;
+}
+
+
+body.rtl .service {
+    direction: rtl;
+}
+
+
+body.rtl .contact-content {
+    text-align: right;
+}
+
+/* =========================
+   HERO PORTRAIT
+   ========================= */
+
+.hero {
+    position: relative;
+}
+
+/* تصویر مستقل از متن */
+.hero-portrait {
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    height: 78vh;
+    width: auto;
+
+    display: flex;
+    align-items: center;
+
+    z-index: 1;
+}
+
+.hero-portrait img {
+    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* متن همچنان در جای اصلی خودش */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================
+   LANGUAGE DIRECTION
+   ========================= */
+
+/* Layout همیشه LTR باقی بماند */
+html,
+body {
+    direction: ltr;
+}
+
+/* متن فارسی */
+body.rtl .hero-content,
+body.rtl .hero-content * {
+    direction: rtl;
+}
+
+/* اما موقعیت Hero حفظ شود */
+body.rtl .hero-content {
+    text-align: left;
+}
+
+/* تصویر همیشه سمت راست */
+.hero-portrait {
+    right: 0;
+    left: auto;
+}
+
+.hero {
+    position: relative;
+    direction: ltr;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    direction: ltr;
+    text-align: left;
+}
+
+.hero-portrait {
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    height: 78vh;
+    width: auto;
+    z-index: 1;
+}
+
+.hero-portrait img {
+    display: block;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* =========================
+   MOBILE HERO
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        position: relative;
+        min-height: 100svh;
+        overflow: hidden;
+    }
+
+    /* متن در قسمت بالای Hero باقی بماند */
+    .hero-content {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        max-width: 100%;
+        padding-bottom: 48vh;
+    }
+
+    /* عکس به پایین صفحه منتقل شود */
+    .hero-portrait {
+        position: absolute;
+
+        top: auto;
+        bottom: 0;
+
+        right: 50%;
+        left: auto;
+
+        transform: translateX(50%);
+
+        height: 45vh;
+        width: auto;
+
+        z-index: 1;
+    }
+
+    .hero-portrait img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+}
+
+/* ========================================
+   MOBILE SIDE MENU
+   ======================================== */
+
+@media (max-width: 768px) {
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .nav {
+        position: fixed;
+
+        top: 0;
+        right: 0;
+        left: auto;
+
+        width: min(82vw, 360px);
+        height: 100dvh;
+
+        padding: 120px 35px 40px;
+
+        background: #111;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+
+        opacity: 1;
+        visibility: visible;
+
+        transform: translateX(100%);
+
+        transition:
+            transform 0.45s cubic-bezier(.77,0,.18,1);
+
+        box-shadow:
+            -20px 0 60px rgba(0, 0, 0, .35);
+
+        z-index: 1001;
+    }
+
+    .nav.open {
+        transform: translateX(0);
+    }
+
+    .nav a {
+        display: block;
+
+        width: 100%;
+
+        padding: 18px 0;
+
+        font-size: 25px;
+        line-height: 1.2;
+
+        text-align: left;
+
+        color: #aaa;
+
+        border-bottom: 1px solid rgba(255,255,255,.08);
+
+        transition:
+            color .25s ease,
+            padding-left .25s ease;
+    }
+
+    .nav a:hover {
+        color: #fff;
+        padding-left: 8px;
+    }
+
+
+    /* =========================
+       MENU BUTTON
+       ========================= */
+
+    .menu-toggle {
+        position: relative;
+
+        display: flex;
+
+        width: 28px;
+        height: 28px;
+
+        padding: 0;
+
+        border: 0;
+        background: transparent;
+
+        cursor: pointer;
+
+        z-index: 1002;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-toggle span {
+        position: absolute;
+
+        width: 25px;
+        height: 1px;
+
+        margin: 0;
+
+        background: #fff;
+
+        transition:
+            transform .3s ease,
+            opacity .2s ease;
+    }
+
+    .menu-toggle span:nth-child(1) {
+        transform: rotate(0deg);
+    }
+
+    .menu-toggle span:nth-child(2) {
+        transform: rotate(90deg);
+    }
+
+
+    /* تبدیل دو خط به X */
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        transform: rotate(-45deg);
+        opacity: 1;
+    }
+}
+@media (max-width: 768px) {
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 14px;
+    }
+
+    .project-image {
+        width: min(150px, 100%);
+        aspect-ratio: 9 / 16;
+        margin: 0 auto;
+    }
+
+}
+
+/* =========================
+   VIDEO PLAYER
+========================= */
+
+#aparat-player {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+#aparat-player video {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-height: 80vh;
+
+    object-fit: contain;
+
+    background: #000;
+}
+
+/* ========================================
+   VIDEO MODAL - MOBILE MENU FIX
+   ======================================== */
+
+/* وقتی ویدئو باز است، دکمه منوی موبایل غیرفعال شود */
+body.modal-open .menu-toggle {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* دکمه بستن ویدئو همیشه بالاتر از سایر عناصر باشد */
+.modal-close {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+
+    z-index: 9999;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+
+    body.modal-open .menu-toggle {
+        display: none;
+    }
+
+    .modal-close {
+        top: 20px;
+        right: 20px;
+
+        width: 50px;
+        height: 50px;
+    }
+
+}/* ========================================
+   HIDE HEADER WHEN VIDEO MODAL IS OPEN
+   ======================================== */
+
+body.modal-open .header {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+body.modal-open .video-modal {
+    z-index: 9999;
+}
+
+body.modal-open .modal-close {
+    z-index: 10000;
+    pointer-events: auto;
+}
